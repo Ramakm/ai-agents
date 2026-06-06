@@ -46,4 +46,4 @@ pip install -r requirements.txt
 
 [![X](https://img.shields.io/badge/X-%40techwith_ram-black?logo=x)](https://x.com/techwith_ram)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%40ramakrushnamohapatra-blue?logo=linkedin)](https://linkedin.com/in/ramakrushnamohapatra)
-[![Instagram](https://img.shields.io/badge/Instagram-%techwith.ram-E4405F?logo=instagram&logoColor=white)](https://instagram.com/techwith.ram)
+[![Instagram](https://img.shields.io/badge/Instagram-%techwithram-E4405F?logo=instagram&logoColor=white)](https://instagram.com/techwith.ram)
