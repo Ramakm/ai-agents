@@ -44,6 +44,6 @@ pip install -r requirements.txt
 
 ## Connect
 
-[![X](https://img.shields.io/badge/X-%40ramakm-black?logo=x)](https://x.com/techwith_ram)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%40ramakm-blue?logo=linkedin)](https://linkedin.com/in/ramakrushnamohapatra)
-[![Instagram](https://img.shields.io/badge/Instagram-%40ramakm-E4405F?logo=instagram&logoColor=white)](https://instagram.com/techwith.ram)
+[![X](https://img.shields.io/badge/X-%40techwith_ram-black?logo=x)](https://x.com/techwith_ram)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-%40ramakrushnamohapatra-blue?logo=linkedin)](https://linkedin.com/in/ramakrushnamohapatra)
+[![Instagram](https://img.shields.io/badge/Instagram-%techwith.ram-E4405F?logo=instagram&logoColor=white)](https://instagram.com/techwith.ram)
