@@ -5,12 +5,21 @@ Each section is a self-contained folder with notebooks you can run immediately.
 
 ---
 
+## Connect
+
+[![GitHub](https://img.shields.io/badge/GitHub-%40Ramakm-181717?logo=github&logoColor=white)](https://github.com/Ramakm)
+[![Medium](https://img.shields.io/badge/Medium-%40techwithram-black?logo=medium&logoColor=white)](https://medium.com/@techwithram)
+[![X](https://img.shields.io/badge/X-%40techwith__ram-black?logo=x)](https://x.com/techwith_ram)
+[![Instagram](https://img.shields.io/badge/Instagram-%40techwith.ram-E4405F?logo=instagram&logoColor=white)](https://instagram.com/techwith.ram)
+
+---
+
 ## Progress
 
 | # | Topic | Status | Folder |
 |---|-------|--------|--------|
 | 1 | LangChain | ✅ Done | [`langchain/`](./langchain/) |
-| 2 | LangGraph | 🔜 Next | — |
+| 2 | LangGraph | ✅ Done | [`langgraph/`](./langgraph/) |
 | 3 | Memory & State | 🔜 | — |
 | 4 | Tool Use & Function Calling | 🔜 | — |
 | 5 | Multi-Agent Systems | 🔜 | — |
@@ -40,10 +49,3 @@ pip install -r requirements.txt
 # GOOGLE_API_KEY=...
 ```
 
----
-
-## Connect
-
-[![X](https://img.shields.io/badge/X-%40techwith_ram-black?logo=x)](https://x.com/techwith_ram)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%40ramakrushnamohapatra-blue?logo=linkedin)](https://linkedin.com/in/ramakrushnamohapatra)
-[![Instagram](https://img.shields.io/badge/Instagram-%40techwith.ram-E4405F?logo=instagram&logoColor=white)](https://instagram.com/techwith.ram)
