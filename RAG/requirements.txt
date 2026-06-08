@@ -1,0 +1,11 @@
+langchain>=0.3.25
+langchain-core>=0.3.0
+langchain-community>=0.3.0
+langchain-groq>=0.3.2
+langchain-huggingface>=0.1.0
+langgraph>=0.4.8
+sentence-transformers>=3.0.0
+faiss-cpu>=1.8.0
+chromadb>=0.5.0
+python-dotenv>=1.1.0
+numpy>=1.26.0

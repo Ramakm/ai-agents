@@ -1,0 +1,31 @@
+Python Programming Tips and Best Practices
+
+List Comprehensions
+List comprehensions provide a concise way to create lists from existing iterables. Instead of writing a for loop with append, you can write a single expressive line. For example, to square all even numbers from 1 to 10, write: squares = [x**2 for x in range(1, 11) if x % 2 == 0]. You can nest list comprehensions to work with 2D structures, but keep them readable. Dict comprehensions and set comprehensions follow the same syntax using curly braces.
+
+Generators
+Generators are memory-efficient iterators that yield values one at a time instead of storing the entire sequence in memory. Define a generator function using the yield keyword. For example: def countdown(n): while n > 0: yield n; n -= 1. Generator expressions look like list comprehensions but use parentheses: (x**2 for x in range(1000000)) creates an iterable without allocating memory for all values. Use generators when working with large datasets or infinite sequences. The itertools module provides powerful tools for working with iterators.
+
+Decorators
+Decorators are functions that wrap other functions to add behaviour without modifying the original code. They use the @syntax above a function definition. Common built-in decorators include @staticmethod, @classmethod, and @property. You can create custom decorators using functools.wraps to preserve the original function's metadata. A simple timer decorator can measure execution time: define a wrapper function that records time before and after calling the original function. Decorators are widely used in frameworks like Flask and Django for routing and authentication.
+
+Context Managers
+Context managers handle setup and teardown operations automatically using the with statement. The most common use is file handling: with open('file.txt', 'r') as f: ensures the file is closed even if an exception occurs. Create custom context managers using the contextlib.contextmanager decorator or by implementing __enter__ and __exit__ methods in a class. Context managers are also useful for database connections, locks in threading, and temporarily changing environment settings.
+
+F-strings
+F-strings introduced in Python 3.6 are the fastest and most readable way to format strings. Prefix a string with f and embed expressions in curly braces: name = "World"; greeting = f"Hello, {name}!". You can include complex expressions, method calls, and format specifiers: f"{price:.2f}" formats a float to 2 decimal places. F-strings evaluate expressions at runtime, making them flexible. In Python 3.12, f-strings support nested quotes, making complex expressions cleaner.
+
+Error Handling
+Use specific exception types instead of bare except clauses to avoid hiding unexpected errors. The try-except-else-finally pattern provides full control: try executes the risky code, except handles specific errors, else runs if no exception occurred, and finally always runs for cleanup. Raise exceptions with descriptive messages using raise ValueError("message"). Create custom exception classes by inheriting from Exception. Use contextlib.suppress to silently ignore specific exceptions when appropriate.
+
+Type Hints
+Type hints make Python code more readable and enable static analysis tools like mypy. Add hints to function parameters and return values: def greet(name: str) -> str:. Use the typing module for complex types: List[int], Dict[str, Any], Optional[str], Union[int, str]. Python 3.10 introduced the pipe operator for unions: int | str. Type hints are not enforced at runtime but improve IDE support and documentation. Pydantic uses type hints for runtime data validation.
+
+Virtual Environments
+Always use virtual environments to isolate project dependencies. Create one with python -m venv .venv and activate it with source .venv/bin/activate on Linux/Mac or .venv\Scripts\activate on Windows. Use pip install -r requirements.txt to install dependencies. Keep requirements.txt updated with pip freeze > requirements.txt. Consider using pyenv to manage multiple Python versions. Tools like Poetry and uv provide more sophisticated dependency management with lock files.
+
+Testing
+Write tests using the built-in unittest module or the popular pytest framework. Tests should be fast, isolated, and cover both happy paths and edge cases. Use pytest fixtures to share setup code between tests. Mock external dependencies using unittest.mock.patch to keep tests deterministic. Aim for high code coverage but focus on testing behaviour rather than implementation details. Test-driven development means writing tests before writing the actual code.
+
+Performance Optimisation
+Profile before optimising using cProfile or line_profiler to identify actual bottlenecks. Use local variables instead of global variables inside loops for faster access. NumPy and Pandas vectorised operations are significantly faster than Python loops for numerical work. The functools.lru_cache decorator memoises function results for expensive computations. Use slots in classes to reduce memory usage when creating many instances. The multiprocessing module bypasses the GIL for CPU-bound tasks, while asyncio handles IO-bound tasks efficiently.

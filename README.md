@@ -23,7 +23,7 @@ Each section is a self-contained folder with notebooks you can run immediately.
 | 3 | Memory & State | 🔜 | — |
 | 4 | Tool Use & Function Calling | 🔜 | — |
 | 5 | Multi-Agent Systems | 🔜 | — |
-| 6 | RAG (Retrieval-Augmented Generation) | 🔜 | — |
+| 6 | RAG (Retrieval-Augmented Generation) | ✅ Done | [`RAG/`](./RAG/) |
 | 7 | Agent Evaluation & Observability | 🔜 | — |
 
 ---
