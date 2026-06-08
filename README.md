@@ -20,7 +20,7 @@ Each section is a self-contained folder with notebooks you can run immediately.
 |---|-------|--------|--------|
 | 1 | LangChain | ✅ Done | [`langchain/`](./langchain/) |
 | 2 | LangGraph | ✅ Done | [`langgraph/`](./langgraph/) |
-| 3 | Memory & State | 🔜 | — |
+| 3 | Memory & State | ✅ Done | [`memory-and-state/`](./memory-and-state/) |
 | 4 | Tool Use & Function Calling | 🔜 | — |
 | 5 | Multi-Agent Systems | 🔜 | — |
 | 6 | RAG (Retrieval-Augmented Generation) | ✅ Done | [`RAG/`](./RAG/) |
@@ -48,4 +48,29 @@ pip install -r requirements.txt
 # GROQ_API_KEY=...
 # GOOGLE_API_KEY=...
 ```
+
+---
+
+## 3. Memory & State ✅
+
+Five notebooks covering every type of agent memory — from a plain Python dict
+to a persistent JSON store that survives Python restarts.
+
+| Notebook | What you'll learn |
+|----------|-------------------|
+| `01_why_memory_matters.ipynb` | Stateless vs stateful chatbot — Python dict/list memory |
+| `02_conversation_buffer.ipynb` | Full buffer + window trimming to control token cost |
+| `03_summary_memory.ipynb` | LLM compresses old messages — 75% token saving |
+| `04_langgraph_sessions.ipynb` | `MemorySaver` checkpointer + `thread_id` multi-user sessions |
+| `05_persistent_memory.ipynb` | JSON file — facts and history survive restarts |
+
+**Setup:**
+```bash
+cd memory-and-state
+pip install -r requirements.txt
+cp .env.example .env   # add your GROQ_API_KEY
+jupyter notebook
+```
+
+> Notebook 01 needs no API key — start there.
 
