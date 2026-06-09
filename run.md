@@ -19,28 +19,64 @@ ai-agents/
 
 ---
 
-## General Setup Flow
+## Package Manager Options
 
-Every project follows the same four-step pattern before you open Jupyter.
+Every project supports two setup paths: **pip** (built into Python) and
+**uv** (a faster drop-in replacement). Pick one and use it consistently
+within a project.
+
+**Install uv** (one-time, if you choose it):
+
+```bash
+# macOS / Linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# or via pip
+pip install uv
+
+# or via Homebrew
+brew install uv
+```
+
+---
+
+## General Setup Flow
 
 ```
  cd into the project folder
           |
           v
- python3 -m venv .venv
- source .venv/bin/activate
+  --------+--------
+  |               |
+ pip             uv
+  |               |
+  v               v
+ python3 -m     uv venv
+ venv .venv
+  |               |
+  v               v
+ source .venv/bin/activate (both)
           |
           v
- pip install -r requirements.txt
+  --------+--------
+  |               |
+ pip             uv
+  |               |
+  v               v
+ pip install    uv pip install
+ -r require-    -r require-
+ ments.txt      ments.txt
+  |               |
+  `-------+-------'
           |
           v
- create .env and add API keys      <-- skip if the project has no API requirement
+ create .env and add API keys      <-- skip if no API key required
           |
           v
  jupyter notebook
           |
           v
- open the notebook -> run cells top to bottom
+ open notebook -> run cells top to bottom
 ```
 
 ---
@@ -63,13 +99,22 @@ calling, LCEL chains, and streaming.
 | GROQ_API_KEY | https://console.groq.com/ | All notebooks |
 | GOOGLE_API_KEY | https://aistudio.google.com/app/apikey | Notebooks that use Gemini |
 
-**Steps:**
+**Using pip:**
 
 ```bash
 cd langchain
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+```
+
+**Using uv:**
+
+```bash
+cd langchain
+uv venv
+source .venv/bin/activate
+uv pip install -r requirements.txt
 ```
 
 Create a `.env` file manually (no `.env.example` provided):
@@ -126,13 +171,22 @@ conditional edges, loops, multi-agent collaboration, and supervisor patterns.
 | TAVILY_API_KEY | https://app.tavily.com/ | Notebook 05 only |
 | LANGCHAIN_API_KEY | https://smith.langchain.com/ | Optional (tracing) |
 
-**Steps:**
+**Using pip:**
 
 ```bash
 cd langgraph
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+```
+
+**Using uv:**
+
+```bash
+cd langgraph
+uv venv
+source .venv/bin/activate
+uv pip install -r requirements.txt
 ```
 
 Create `.env`:
@@ -181,17 +235,25 @@ filtering, and agentic RAG with a self-correcting loop.
 | GROQ_API_KEY | https://console.groq.com/ | Notebooks 03, 04, 05 |
 | LANGCHAIN_API_KEY | https://smith.langchain.com/ | Optional (tracing) |
 
-**Note:** The first run of any notebook will download the
-`all-MiniLM-L6-v2` sentence-transformers model (about 90 MB). This is
-cached automatically and does not repeat on subsequent runs.
+**Note:** The first run downloads the `all-MiniLM-L6-v2` sentence-transformers
+model (about 90 MB). It is cached automatically after that.
 
-**Steps:**
+**Using pip:**
 
 ```bash
 cd RAG
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+```
+
+**Using uv:**
+
+```bash
+cd RAG
+uv venv
+source .venv/bin/activate
+uv pip install -r requirements.txt
 ```
 
 Create `.env`:
@@ -249,13 +311,23 @@ JSON-based persistent memory that survives restarts.
 | GROQ_API_KEY | https://console.groq.com/ | Notebooks 02, 03, 04, 05 |
 | LANGCHAIN_API_KEY | https://smith.langchain.com/ | Optional (tracing) |
 
-**Steps:**
+**Using pip:**
 
 ```bash
 cd memory-and-state
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+cp .env.example .env
+```
+
+**Using uv:**
+
+```bash
+cd memory-and-state
+uv venv
+source .venv/bin/activate
+uv pip install -r requirements.txt
 cp .env.example .env
 ```
 
@@ -283,8 +355,8 @@ jupyter notebook
 05-persistent-memory/persistent_memory.ipynb        GROQ_API_KEY
 ```
 
-**Note:** Notebook 05 creates a file called `agent_memory.json` in the
-same directory. Delete it to reset all saved memory.
+**Note:** Notebook 05 creates `agent_memory.json` in the same directory.
+Delete it to reset all saved memory.
 
 ---
 
@@ -303,13 +375,23 @@ map-reduce over an entire document collection.
 | GROQ_API_KEY | https://console.groq.com/ | Notebooks 03, 04, 05 |
 | LANGCHAIN_API_KEY | https://smith.langchain.com/ | Optional (tracing) |
 
-**Steps:**
+**Using pip:**
 
 ```bash
 cd vectorlessRAG
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+cp .env.example .env
+```
+
+**Using uv:**
+
+```bash
+cd vectorlessRAG
+uv venv
+source .venv/bin/activate
+uv pip install -r requirements.txt
 cp .env.example .env
 ```
 
@@ -358,8 +440,25 @@ vectorlessRAG/data/
 | TAVILY_API_KEY | Yes (limited) | https://app.tavily.com/ | langgraph (notebook 05) |
 | LANGCHAIN_API_KEY | Yes | https://smith.langchain.com/ | Optional in all projects |
 
-All LLM calls in this repository use `llama3-8b-8192` via Groq unless
-otherwise noted. Groq's free tier is sufficient to run every notebook.
+All LLM calls use `llama3-8b-8192` via Groq unless otherwise noted.
+Groq's free tier is sufficient to run every notebook.
+
+---
+
+## pip vs uv
+
+| Feature | pip | uv |
+|---------|-----|----|
+| Comes with Python | Yes | No (one-time install) |
+| Speed | Standard | 10-100x faster |
+| Command to create venv | `python3 -m venv .venv` | `uv venv` |
+| Command to install | `pip install -r requirements.txt` | `uv pip install -r requirements.txt` |
+| Drop-in compatible | - | Yes, same flags as pip |
+| Lock file support | No (needs pip-tools) | Yes (`uv lock`) |
+
+Both work identically for the purposes of this repository.
+`uv` is recommended if you are setting up multiple projects or
+want faster installs.
 
 ---
 
@@ -367,9 +466,9 @@ otherwise noted. Groq's free tier is sufficient to run every notebook.
 
 | Error | Cause | Fix |
 |-------|-------|-----|
-| `ModuleNotFoundError` | Package not installed | Run `pip install -r requirements.txt` with venv active |
+| `ModuleNotFoundError` | Package not installed | Run `pip install -r requirements.txt` or `uv pip install -r requirements.txt` with venv active |
 | `GROQ_API_KEY not set` | Missing .env file or wrong key name | Check .env exists and key is spelled correctly |
-| `jupyter: command not found` | Jupyter not installed in venv | Run `pip install jupyter` inside the venv |
+| `jupyter: command not found` | Jupyter not installed in venv | Run `pip install jupyter` or `uv pip install jupyter` inside the venv |
 | `allow_dangerous_deserialization` | FAISS load in RAG notebooks | Pass `allow_dangerous_deserialization=True` to `FAISS.load_local` |
 | ChromaDB collection already exists | Re-running notebook 04 in RAG | Delete the `chroma_study/` folder and re-run |
 | HuggingFace download times out | First-run model download on slow connection | Wait and retry; model is cached after first download |
