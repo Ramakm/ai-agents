@@ -24,7 +24,7 @@ Each folder is self-contained with notebooks you can run immediately.
 | 4 | RAG | ✅ Done | [`RAG/`](./RAG/) |
 | 5 | VectorlessRAG | ✅ Done | [`vectorlessRAG/`](./vectorlessRAG/) |
 | 6 | Tool Use & Function Calling | Coming soon | - |
-| 7 | Multi-Agent Systems | Coming soon | - |
+| 7 | Multi-Agent Systems | ✅ Done | [`multi-agent-systems/`](./multi-agent-systems/) |
 | 8 | Agent Evaluation & Observability | Coming soon | - |
 
 ---
@@ -171,6 +171,35 @@ jupyter notebook
 ```
 
 > Notebooks 01 and 02 need no API key. Start there.
+
+---
+
+## 6. Multi-Agent Systems
+
+Five notebooks covering every major multi-agent pattern: rule-based agent
+loops, LLM-driven tool calling, two-agent handoffs, supervisor routing, and
+a full 5-agent collaborative pipeline with a quality gate and revision loop.
+
+| Notebook | What you will learn |
+|----------|---------------------|
+| `01-agent-basics/agent_basics.ipynb` | State, nodes, agent loop, rule-based tool routing — no LLM needed |
+| `02-tool-calling-agent/tool_calling_agent.ipynb` | `@tool`, `bind_tools`, `ToolNode`, ReAct (Reason + Act) pattern |
+| `03-two-agent-system/two_agent_system.ipynb` | State handoff between a Researcher and a Writer agent |
+| `04-supervisor-pattern/supervisor_pattern.ipynb` | Supervisor dynamically routes work to Analyst, Summarizer, Fact-Checker |
+| `05-collaborative-pipeline/collaborative_pipeline.ipynb` | Planner → Researcher → Analyst → Writer → Critic with quality gate |
+
+**API keys:** `GROQ_API_KEY` (notebooks 02–05), `TAVILY_API_KEY` optional (notebook 05)
+
+**Setup:**
+```bash
+cd multi-agent-systems
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+cp .env.example .env   # add GROQ_API_KEY (and optionally TAVILY_API_KEY)
+jupyter notebook
+```
+
+> Notebook 01 needs no API key. Start there.
 
 ---
 
