@@ -4,13 +4,7 @@ A hands-on, concept-by-concept journey through building AI agents.
 Each folder is self-contained with notebooks you can run immediately.
 
 ---
-
-## Connect
-
-[![GitHub](https://img.shields.io/badge/GitHub-%40Ramakm-181717?logo=github&logoColor=white)](https://github.com/Ramakm)
-[![Medium](https://img.shields.io/badge/Medium-%40techwithram-black?logo=medium&logoColor=white)](https://medium.com/@techwithram)
-[![X](https://img.shields.io/badge/X-%40techwith__ram-black?logo=x)](https://x.com/techwith_ram)
-[![Instagram](https://img.shields.io/badge/Instagram-%40techwith.ram-E4405F?logo=instagram&logoColor=white)](https://instagram.com/techwith.ram)
+<img width="2000" height="600" alt="Research Brief Docs Banner in Orange Teal Pink Soft Pastels Style" src="https://github.com/user-attachments/assets/c61556bb-fc15-40c1-a978-1453704a5b33" />
 
 ---
 
@@ -207,3 +201,10 @@ jupyter notebook
 
 See [`run.md`](./run.md) for the full setup guide, API key sources, notebook
 order diagrams, and a common errors reference for every project.
+
+## Connect
+
+[![GitHub](https://img.shields.io/badge/GitHub-%40Ramakm-181717?logo=github&logoColor=white)](https://github.com/Ramakm)
+[![Medium](https://img.shields.io/badge/Medium-%40techwithram-black?logo=medium&logoColor=white)](https://medium.com/@techwithram)
+[![X](https://img.shields.io/badge/X-%40techwith__ram-black?logo=x)](https://x.com/techwith_ram)
+[![Instagram](https://img.shields.io/badge/Instagram-%40techwith.ram-E4405F?logo=instagram&logoColor=white)](https://instagram.com/techwith.ram)
