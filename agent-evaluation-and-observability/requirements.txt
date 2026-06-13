@@ -1,0 +1,3 @@
+langchain-groq>=0.3.2
+langchain-core>=0.3.0
+python-dotenv>=1.1.0

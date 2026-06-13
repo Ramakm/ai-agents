@@ -19,7 +19,7 @@ Each folder is self-contained with notebooks you can run immediately.
 | 5 | VectorlessRAG | ✅ Done | [`vectorlessRAG/`](./vectorlessRAG/) |
 | 6 | Tool Use & Function Calling | Coming soon | - |
 | 7 | Multi-Agent Systems | ✅ Done | [`multi-agent-systems/`](./multi-agent-systems/) |
-| 8 | Agent Evaluation & Observability | Coming soon | - |
+| 8 | Agent Evaluation & Observability | ✅ Done | [`agent-evaluation-and-observability/`](./agent-evaluation-and-observability/) |
 
 ---
 
@@ -190,6 +190,35 @@ cd multi-agent-systems
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env   # add GROQ_API_KEY (and optionally TAVILY_API_KEY)
+jupyter notebook
+```
+
+> Notebook 01 needs no API key. Start there.
+
+---
+
+## 8. Agent Evaluation & Observability
+
+Five notebooks on how to *measure* agents and *see inside* them: metrics built
+from scratch, LLM-as-a-judge, a tracer you build by hand, RAG/agent-specific
+metrics, and a full CI-style eval suite with a regression gate.
+
+| Notebook | What you will learn |
+|----------|---------------------|
+| `01-evaluation-foundations/evaluation_foundations.ipynb` | Test cases, exact/fuzzy match, token-F1, latency & cost — no LLM |
+| `02-llm-as-judge/llm_as_judge.ipynb` | Binary, rubric, multi-criteria, reference-free & pairwise judges, judge bias |
+| `03-tracing-and-observability/tracing_and_observability.ipynb` | Spans, traces, `@trace` decorator, token/cost capture, trace trees |
+| `04-rag-agent-metrics/rag_agent_metrics.ipynb` | Context precision/recall, faithfulness, answer relevance, tool-call correctness |
+| `05-eval-pipeline/eval_pipeline.ipynb` | Golden dataset, metric registry, A/B compare, regression gate |
+
+**API keys:** `GROQ_API_KEY` (notebooks 02-05)
+
+**Setup:**
+```bash
+cd agent-evaluation-and-observability
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+cp .env.example .env   # add GROQ_API_KEY
 jupyter notebook
 ```
 
